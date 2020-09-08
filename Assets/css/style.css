@@ -1,5 +1,5 @@
 body{
-    background-color: darkolivegreen;
+    background-color: bisque;
 }
 
 nav {
@@ -7,3 +7,11 @@ nav {
     color: white;
     font-size: 32px;
 }
+
+.search-title {
+    font-size: 32px;
+    text-transform: capitalize;
+}
+
+
+

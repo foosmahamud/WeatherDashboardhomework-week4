@@ -1,11 +1,24 @@
-// 
 // WHEN I search for a city
 // when I click the search buttom 
-$("#search-button").click(function() {
+// Event listener -> listening for the click event
+$("#search-button").click(function () {
     console.log("You clicked me!")
     // grab the text out of the input field and save it as a variable
-        // google, how do I get text from input field jquery
+    // google, how do I get text from input field jquery
+    var city = $("#city-to-search").val();
+    console.log(city);
+
     // send that city to the weather API
+    var apiKey = "3c850fc4462f73aad73ebf6d18f067fd"
+    var queryUrl = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey
+
+
+    $.ajax({
+        method: "Get",
+        queryUrl: queryUrl
+    }).then(function(data){
+        console.log(data)
+    });
     // the API is going to send us back data
     // get the temp, humidity, windspeed, and uv index'
     // add those to the page
