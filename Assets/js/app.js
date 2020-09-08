@@ -14,7 +14,7 @@ $("#search-button").click(function () {
 
 
     $.ajax({
-        method: "Get",
+        method: "GET",
         queryUrl: queryUrl
     }).then(function(data){
         console.log(data)
