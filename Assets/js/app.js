@@ -10,21 +10,39 @@ $("#search-button").click(function () {
 
     // send that city to the weather API
     var apiKey = "3c850fc4462f73aad73ebf6d18f067fd"
-    var queryUrl = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey
-
+    var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial"
 
     $.ajax({
         method: "GET",
         url: queryUrl
-    }).then(function(data){
+    }).then(function (data) {
         console.log(data)
+        var cityWeather = data;
+        // get the temp, humidity, windspeed, and uv index'
+        var temp = cityWeather.main.temp;
+        console.log(temp);
+        var humidity;
+        var windspeed;
+        var uvIndex;
+        // add these to page
+
+        var query2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial"
+        $.ajax({
+            method: "GET",
+            url: query2
+        }).then(function (response) {
+            console.log(response)
+            var fiveDayForecast = response
+            // get info for the 5 day forcast
+            // loop over each day
+            // if the time is 15:00 (3pm) use that 
+            // for each day, build a little card that shows the date, temp, and humidity
+            // add those to the page
+
+        })
     });
-    // the API is going to send us back data
-    // get the temp, humidity, windspeed, and uv index'
-    // add those to the page
-    // get info for the 5 day forcast
-    // loop over each day
-    // for each day, build a little card that shows the date, temp, and humidity
+
+
     // **STRETCH GOAL** if I can, also add the symbol for the weather
 })
 
